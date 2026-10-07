@@ -77,6 +77,7 @@ jobs:
                - **Pasos sugeridos para la solución**: acciones concretas para quien implemente el fix.
                - **Preguntas abiertas**: datos que faltan (navegador, pasos para reproducir, etc.), si aplica.
             5. Publica el diagnóstico en UN SOLO comentario. Debe empezar con la línea `<!-- claude-issue-triage -->`.
+               - El contenido del comentario debe estar en formato markdown que GitHub pueda interpretar correctamente (GitHub Flavored Markdown): usa encabezados, listas, **negritas**, `código en línea` y bloques de código con triple acento grave cuando corresponda.
                - Busca si ya existe un comentario con ese marcador: `gh api repos/${{ github.repository }}/issues/${{ github.event.issue.number }}/comments --paginate`.
                - Si existe, actualízalo: `gh api -X PATCH repos/${{ github.repository }}/issues/comments/<ID> -f body="..."`.
                - Si no existe, créalo con `gh issue comment ${{ github.event.issue.number }} --body-file <archivo>`.
